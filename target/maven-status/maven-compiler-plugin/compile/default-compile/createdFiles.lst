@@ -1,0 +1,6 @@
+ru\nursultanaldibaev\filmorate\controller\FilmController.class
+ru\nursultanaldibaev\filmorate\exception\ValidationException.class
+ru\nursultanaldibaev\filmorate\controller\UserController.class
+ru\nursultanaldibaev\filmorate\model\Film.class
+ru\nursultanaldibaev\filmorate\FilmorateApplication.class
+ru\nursultanaldibaev\filmorate\model\User.class
