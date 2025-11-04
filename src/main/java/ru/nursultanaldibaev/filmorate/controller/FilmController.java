@@ -6,7 +6,9 @@ import ru.nursultanaldibaev.filmorate.model.Film;
 import ru.nursultanaldibaev.filmorate.exception.ValidationException;
 
 import java.time.LocalDate;
-import java.util.*;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
 
 @Slf4j
 @RestController
@@ -48,7 +50,8 @@ public class FilmController {
         if (film.getDescription() != null && film.getDescription().length() > 200) {
             throw new ValidationException("Описание не должно превышать 200 символов.");
         }
-        if (film.getReleaseDate() != null && film.getReleaseDate().isBefore(LocalDate.of(1895, 12, 28))) {
+        if (film.getReleaseDate() != null &&
+                film.getReleaseDate().isBefore(LocalDate.of(1895, 12, 28))) {
             throw new ValidationException("Дата релиза не может быть раньше 28 декабря 1895 года.");
         }
         if (film.getDuration() <= 0) {

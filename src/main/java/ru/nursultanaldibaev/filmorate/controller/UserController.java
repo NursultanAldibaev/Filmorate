@@ -6,7 +6,9 @@ import ru.nursultanaldibaev.filmorate.model.User;
 import ru.nursultanaldibaev.filmorate.exception.ValidationException;
 
 import java.time.LocalDate;
-import java.util.*;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
 
 @Slf4j
 @RestController
