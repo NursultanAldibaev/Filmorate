@@ -1,14 +1,6 @@
-ru\nursultanaldibaev\filmorate\exception\ErrorHandler.class
-ru\nursultanaldibaev\filmorate\controller\UserController.class
-ru\nursultanaldibaev\filmorate\model\Film.class
-ru\nursultanaldibaev\filmorate\storage\user\InMemoryUserStorage.class
-ru\nursultanaldibaev\filmorate\FilmorateApplication.class
-ru\nursultanaldibaev\filmorate\exception\NotFoundException.class
-ru\nursultanaldibaev\filmorate\storage\user\UserStorage.class
-ru\nursultanaldibaev\filmorate\storage\film\InMemoryFilmStorage.class
 ru\nursultanaldibaev\filmorate\controller\FilmController.class
 ru\nursultanaldibaev\filmorate\exception\ValidationException.class
-ru\nursultanaldibaev\filmorate\service\FilmService.class
-ru\nursultanaldibaev\filmorate\service\UserService.class
+ru\nursultanaldibaev\filmorate\controller\UserController.class
+ru\nursultanaldibaev\filmorate\model\Film.class
+ru\nursultanaldibaev\filmorate\FilmorateApplication.class
 ru\nursultanaldibaev\filmorate\model\User.class
-ru\nursultanaldibaev\filmorate\storage\film\FilmStorage.class
