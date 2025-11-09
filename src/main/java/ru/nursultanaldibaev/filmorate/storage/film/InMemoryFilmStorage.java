@@ -1,11 +1,13 @@
 package ru.nursultanaldibaev.filmorate.storage.film;
 
-import org.springframework.stereotype.Component;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Repository;
 import ru.nursultanaldibaev.filmorate.exception.NotFoundException;
 import ru.nursultanaldibaev.filmorate.model.Film;
 import java.util.*;
 
-@Component
+@Repository
+@Qualifier("inMemoryFilmStorage")
 public class InMemoryFilmStorage implements FilmStorage {
 
     private final Map<Long, Film> films = new HashMap<>();
@@ -35,7 +37,9 @@ public class InMemoryFilmStorage implements FilmStorage {
     @Override
     public Film getFilmById(Long id) {
         Film film = films.get(id);
-        if (film == null) throw new NotFoundException("Фильм с ID " + id + " не найден");
+        if (film == null) {
+            throw new NotFoundException("Фильм с ID " + id + " не найден");
+        }
         return film;
     }
 }
