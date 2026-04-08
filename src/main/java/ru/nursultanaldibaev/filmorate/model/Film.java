@@ -1,33 +1,76 @@
 package ru.nursultanaldibaev.filmorate.model;
 
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Positive;
-import jakarta.validation.constraints.Size;
-import lombok.Data;
+import jakarta.validation.constraints.*;
 
 import java.time.LocalDate;
+import java.util.HashSet;
 import java.util.Set;
 
-@Data
 public class Film {
     private Long id;
 
-    @NotBlank(message = "Название фильма не может быть пустым.")
+    @NotBlank(message = "Название фильма не может быть пустым")
     private String name;
 
-    @Size(max = 200, message = "Описание не должно превышать 200 символов.")
+    @Size(max = 200, message = "Описание не должно превышать 200 символов")
     private String description;
 
-    @NotNull(message = "Дата релиза не может быть пустой.")
+    @NotNull(message = "Дата релиза обязательна")
     private LocalDate releaseDate;
 
-    @Positive(message = "Продолжительность фильма должна быть положительной.")
+    @Positive(message = "Продолжительность должна быть положительным числом")
     private int duration;
 
-    // Новый код ↓
-    @NotNull(message = "Рейтинг обязателен.")
-    private Mpa mpa;
+    // 🔥 ЛАЙКИ (добавили)
+    private Set<Long> likes = new HashSet<>();
 
-    private Set<Genre> genres;
+    // ===== Геттеры и сеттеры =====
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public LocalDate getReleaseDate() {
+        return releaseDate;
+    }
+
+    public void setReleaseDate(LocalDate releaseDate) {
+        this.releaseDate = releaseDate;
+    }
+
+    public int getDuration() {
+        return duration;
+    }
+
+    public void setDuration(int duration) {
+        this.duration = duration;
+    }
+
+    public Set<Long> getLikes() {
+        return likes;
+    }
+
+    public void setLikes(Set<Long> likes) {
+        this.likes = likes;
+    }
 }
