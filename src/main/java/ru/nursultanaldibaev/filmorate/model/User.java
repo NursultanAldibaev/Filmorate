@@ -5,7 +5,9 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Past;
 import lombok.Data;
+
 import java.time.LocalDate;
+import java.util.Set;
 
 @Data
 public class User {
@@ -23,4 +25,7 @@ public class User {
     @NotNull(message = "Дата рождения обязательна.")
     @Past(message = "Дата рождения должна быть в прошлом.")
     private LocalDate birthday;
+
+    // Новый код ↓
+    private Set<Long> friends; // id друзей (односторонняя дружба)
 }

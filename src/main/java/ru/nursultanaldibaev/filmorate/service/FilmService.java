@@ -1,15 +1,19 @@
 package ru.nursultanaldibaev.filmorate.service;
 
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import ru.nursultanaldibaev.filmorate.model.Film;
 import ru.nursultanaldibaev.filmorate.storage.film.FilmStorage;
+
 import java.util.List;
 
 @Service
 public class FilmService {
+
     private final FilmStorage filmStorage;
 
-    public FilmService(FilmStorage filmStorage) {
+    // Здесь указываем, какую реализацию использовать: filmDbStorage или inMemoryFilmStorage
+    public FilmService(@Qualifier("filmDbStorage") FilmStorage filmStorage) {
         this.filmStorage = filmStorage;
     }
 

@@ -1,15 +1,19 @@
 package ru.nursultanaldibaev.filmorate.service;
 
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import ru.nursultanaldibaev.filmorate.model.User;
 import ru.nursultanaldibaev.filmorate.storage.user.UserStorage;
+
 import java.util.List;
 
 @Service
 public class UserService {
+
     private final UserStorage userStorage;
 
-    public UserService(UserStorage userStorage) {
+    // Используем Qualifier, чтобы явно указать, какую реализацию подключить.
+    public UserService(@Qualifier("userDbStorage") UserStorage userStorage) {
         this.userStorage = userStorage;
     }
 

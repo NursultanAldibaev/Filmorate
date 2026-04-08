@@ -1,11 +1,13 @@
 package ru.nursultanaldibaev.filmorate.storage.user;
 
-import org.springframework.stereotype.Component;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Repository;
 import ru.nursultanaldibaev.filmorate.exception.NotFoundException;
 import ru.nursultanaldibaev.filmorate.model.User;
 import java.util.*;
 
-@Component
+@Repository
+@Qualifier("inMemoryUserStorage")
 public class InMemoryUserStorage implements UserStorage {
 
     private final Map<Long, User> users = new HashMap<>();
@@ -38,7 +40,9 @@ public class InMemoryUserStorage implements UserStorage {
     @Override
     public User getUserById(Long id) {
         User user = users.get(id);
-        if (user == null) throw new NotFoundException("Пользователь с ID " + id + " не найден");
+        if (user == null) {
+            throw new NotFoundException("Пользователь с ID " + id + " не найден");
+        }
         return user;
     }
 }
